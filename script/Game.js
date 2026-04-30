@@ -272,6 +272,10 @@ class Game {
     clearInterval(this.timerInterval);
     document.querySelector(this.statusDisplaySelector).innerHTML =
       '<img src="img/win.png" alt="You Win!" width="150" height="150">';
+    
+    // Set flag for level progression
+    sessionStorage.setItem('level_progression', 'true');
+    
     this.showPlayAgainButton();
   }
 
@@ -308,8 +312,15 @@ class Game {
    * Load score from localStorage
    */
   loadScore() {
-    const saved = localStorage.getItem(`misalala_score_level${this.level}`);
-    return saved ? parseInt(saved, 10) : 0;
+    const isProgressing = sessionStorage.getItem('level_progression');
+    if (isProgressing) {
+      // Clear the flag after using it
+      sessionStorage.removeItem('level_progression');
+      const saved = localStorage.getItem(`misalala_score_level${this.level}`);
+      return saved ? parseInt(saved, 10) : 0;
+    }
+    // Direct refresh or new game - reset score to 0
+    return 0;
   }
 
   /**
