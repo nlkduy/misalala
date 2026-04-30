@@ -1,109 +1,100 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>MisaLala - Level 3</title>
 		<link rel="stylesheet" href="style/level.css" type="text/css">
-		<link rel="icon" href="facvicon.png" type="img/gif">
-		<script src="script/level3.js"></script>
+		<link rel="icon" href="facvicon.png" type="image/gif">
 	</head>
 
 	<body>
-		<p id="rescore"></p>
+		<div class="game-container level-3">
+			<aside class="reference-images">
+				<h3>Reference Images</h3>
+				<div class="reference-grid">
+					<img src="img/total/1.jpg" alt="Reference 1" class="reference-img">
+					<img src="img/total/2.jpg" alt="Reference 2" class="reference-img">
+					<img src="img/total/3.jpg" alt="Reference 3" class="reference-img">
+					<img src="img/total/4.jpg" alt="Reference 4" class="reference-img">
+					<img src="img/total/5.jpg" alt="Reference 5" class="reference-img">
+					<img src="img/total/6.jpg" alt="Reference 6" class="reference-img">
+					<img src="img/total/7.jpg" alt="Reference 7" class="reference-img">
+					<img src="img/total/8.jpg" alt="Reference 8" class="reference-img">
+					<img src="img/total/9.jpg" alt="Reference 9" class="reference-img">
+					<img src="img/total/10.jpg" alt="Reference 10" class="reference-img">
+					<img src="img/total/11.jpg" alt="Reference 11" class="reference-img">
+					<img src="img/total/12.jpg" alt="Reference 12" class="reference-img">
+					<img src="img/total/13.jpg" alt="Reference 13" class="reference-img">
+					<img src="img/total/14.jpg" alt="Reference 14" class="reference-img">
+					<img src="img/total/15.jpg" alt="Reference 15" class="reference-img">
+					<img src="img/total/16.jpg" alt="Reference 16" class="reference-img">
+					<img src="img/total/17.jpg" alt="Reference 17" class="reference-img">
+					<img src="img/total/18.jpg" alt="Reference 18" class="reference-img">
+				</div>
+			</aside>
 
-		<table align="center">
-			<tr>
-				<td width="25%" valign="top" align="center">
-				<br>
-					<img id="ok1" src="img/total/1.jpg" width="70" height="70" alt="">
-					<img id="ok2" src="img/total/2.jpg" width="70" height="70" alt="">
-					<img id="ok3" src="img/total/3.jpg" width="70" height="70" alt=""><br><br>
-					<img id="ok4" src="img/total/4.jpg" width="70" height="70" alt="">
-					<img id="ok5" src="img/total/5.jpg" width="70" height="70" alt="">
-					<img id="ok6" src="img/total/6.jpg" width="70" height="70" alt=""><br><br>
-					<img id="ok7" src="img/total/7.jpg" width="70" height="70" alt="">
-					<img id="ok8" src="img/total/8.jpg" width="70" height="70" alt="">
-					<img id="ok9" src="img/total/9.jpg" width="70" height="70" alt=""><br><br>
-					<img id="ok10" src="img/total/10.jpg" width="70" height="70" alt="">
-					<img id="ok11" src="img/total/11.jpg" width="70" height="70" alt="">
-					<img id="ok12" src="img/total/12.jpg" width="70" height="70" alt=""><br><br>
-					<img id="ok13" src="img/total/13.jpg" width="70" height="70" alt="">
-					<img id="ok14" src="img/total/14.jpg" width="70" height="70" alt="">
-					<img id="ok15" src="img/total/15.jpg" width="70" height="70" alt=""><br><br>
-					<img id="ok16" src="img/total/16.jpg" width="70" height="70" alt="">
-					<img id="ok17" src="img/total/17.jpg" width="70" height="70" alt="">
-					<img id="ok18" src="img/total/18.jpg" width="70" height="70" alt="">
-					
-				</td>
-				<td width="50%">
-					<table>
-						<tr>
-							<td width="100" height="100"><img id="x1" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x2" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x3" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x4" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x5" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x6" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-						</tr>
-						<tr>
-							<td width="100" height="100"><img id="x7" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x8" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x9" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x10" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x11" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x12" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-						</tr>
-						<tr>
-							<td width="100" height="100"><img id="x13" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x14" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x15" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x16" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x17" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x18" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-						</tr>
-						<tr>
-							<td width="100" height="100"><img id="x19" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x20" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x21" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x22" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x23" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x24" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-						</tr>
-						<tr>
-							<td width="100" height="100"><img id="x25" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x26" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x27" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x28" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x29" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x30" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-						</tr>
-						<tr>
-							<td width="100" height="100"><img id="x31" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x32" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x33" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x34" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x35" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-							<td width="100" height="100"><img id="x36" onClick="show(this.id)" src="img/emty3.jpg" alt=""></td>
-						</tr>
-					</table>
-				</td>
-				<td width="25%" valign="top">
-					<div align="center">	 
-						<br>   
-						<span id="info">
-							&copy; nlkSoft<br>
-						</span>
-						<img src="logo.png" width="200" height="100" alt=""><br>
-						<b id="level">Level 3</b><br><hr style="width:50%; color:#183568"><br>
-						<b>Time:&nbsp;</b><b id="second"></b><br><br>
-						<b id="labelscore">Score:&nbsp;</b>
-						<b id="score"></b><br><br>
-						<b id="stt"></b><br><br>
-						<button id="playagain" onClick="playagain()">Play again !</button>
-					</div>
-				</td>
-			</tr>
-		</table>
+			<main class="game-area">
+				<div id="game-grid" class="game-grid"></div>
+			</main>
+
+			<aside class="game-stats">
+				<div class="logo-container">
+					<a href="index.html" class="misalala-logo-text">MISALALA</a>
+				</div>
+				<h2 id="level">Level 3</h2>
+				<div class="divider"></div>
+				<div class="stat">
+					<span class="stat-label">Time:</span>
+					<span class="stat-value" id="timer">120s</span>
+				</div>
+				<div class="stat">
+					<span class="stat-label">Score:</span>
+					<span class="stat-value" id="score">0</span>
+				</div>
+				<div id="status" class="game-status"></div>
+				<button id="playagain" class="btn-play-again">Play Again</button>
+				<footer class="game-footer">
+					<p>&copy; 2017-2026 by DuyNLK</p>
+				</footer>
+			</aside>
+		</div>
+
+		<div id="score-popup"></div>
+
+		<script src="script/Game.js"></script>
+		<script>
+			const game = new Game({
+				level: 3,
+				gridSize: 36,
+				timeLimit: 120,
+				imageSource: [
+					'img/total/1.jpg', 'img/total/1.jpg',
+					'img/total/2.jpg', 'img/total/2.jpg',
+					'img/total/3.jpg', 'img/total/3.jpg',
+					'img/total/4.jpg', 'img/total/4.jpg',
+					'img/total/5.jpg', 'img/total/5.jpg',
+					'img/total/6.jpg', 'img/total/6.jpg',
+					'img/total/7.jpg', 'img/total/7.jpg',
+					'img/total/8.jpg', 'img/total/8.jpg',
+					'img/total/9.jpg', 'img/total/9.jpg',
+					'img/total/10.jpg', 'img/total/10.jpg',
+					'img/total/11.jpg', 'img/total/11.jpg',
+					'img/total/12.jpg', 'img/total/12.jpg',
+					'img/total/13.jpg', 'img/total/13.jpg',
+					'img/total/14.jpg', 'img/total/14.jpg',
+					'img/total/15.jpg', 'img/total/15.jpg',
+					'img/total/16.jpg', 'img/total/16.jpg',
+					'img/total/17.jpg', 'img/total/17.jpg',
+					'img/total/18.jpg', 'img/total/18.jpg',
+				],
+				containerSelector: '#game-grid',
+				scoreDisplaySelector: '#score',
+				timerDisplaySelector: '#timer',
+				statusDisplaySelector: '#status',
+			});
+
+			window.game = game;
+		</script>
 	</body>
 </html>

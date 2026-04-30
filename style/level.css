@@ -1,83 +1,421 @@
-#rescore {
-	color:#BB6817;
-	font-size:36px;
-	font-weight:bold;
-	position:fixed;
-	bottom:10%;
-	right:10%;
-	display:none;
+.misalala-logo-text {
+	font-size: 2.5rem;
+	color: #e55c1a;
+	text-shadow: 2px 2px 0 #fff, 3px 3px 6px #b94e0b;
+	letter-spacing: 2px;
+	font-weight: bold;
+	user-select: none;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+/* ===========================
+   MisaLala Game - Modern CSS
+   =========================== */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-#score {
-	font-size:25px;
-	color:red;
+html, body {
+	height: 100%;
+	background-image: url(../background.jpg);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100% 100%;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
-#stt {
-	font-size:100px;
-	color:#585158;
+/* ===========================
+   Game Container Layout
+   =========================== */
+
+.game-container {
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	gap: 20px;
+	padding: 20px;
+	max-width: 1400px;
+	margin: 0 auto;
+	height: 100vh;
+	overflow: hidden;
 }
 
-#playagain {
-	display:none;
-	border:0;
-	border-radius:5px;
-	font-weight:bold;
-	padding:10px;
-	background-color:#183568;
-	color:white;
+@media (max-width: 1200px) {
+	.game-container {
+		grid-template-columns: 1fr;
+		gap: 15px;
+	}
 }
 
-#labelscore {
-	font-size:20px;
+/* ===========================
+   Reference Images (Left Sidebar)
+   =========================== */
+
+.reference-images {
+	background: rgba(255, 255, 255, 0.9);
+	padding: 15px;
+	border-radius: 8px;
+	overflow-y: auto;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reference-images h3 {
+	text-align: center;
+	color: #183568;
+	margin-bottom: 15px;
+	font-size: 16px;
+}
+
+.reference-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 8px;
+}
+
+.reference-img {
+	width: 100%;
+	height: auto;
+	border: 2px solid #0C2357;
+	border-radius: 4px;
+	object-fit: cover;
+	aspect-ratio: 1;
+}
+
+@media (max-width: 768px) {
+	.reference-images {
+		display: none;
+	}
+
+	.reference-grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+/* ===========================
+   Game Area (Center)
+   =========================== */
+
+.game-area {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 8px;
+	padding: 20px;
+	overflow: hidden;
+}
+
+.game-grid {
+	display: grid;
+	gap: 10px;
+	width: 100%;
+	height: 100%;
+	place-items: center;
+	max-width: 600px;
+	max-height: 600px;
+}
+
+/* Game Card Styling */
+.game-card {
+	cursor: pointer;
+	background: white;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+	transition: all 0.3s ease;
+	aspect-ratio: 1;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.game-card:hover:not(.matched):not(.flipped) {
+	transform: translateY(-4px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.game-card.flipped {
+	background: #f0f0f0;
+}
+
+.game-card.matched {
+	background: #90EE90;
+	cursor: default;
+	opacity: 0.7;
+}
+
+/* Game card image (default: hidden, shown when flipped) */
+.card-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: none;
+}
+
+.card-image:first-of-type:not([src=""]) {
+	display: block;
+}
+
+/* ===========================
+   Game Stats (Right Sidebar)
+   =========================== */
+
+.game-stats {
+	background: rgba(255, 255, 255, 0.95);
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow-y: auto;
+}
+
+.logo-container {
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+.logo {
+	max-width: 100%;
+	height: auto;
+	max-height: 100px;
 }
 
 #level {
-	font-size:40px;
-	color:#183568
+	font-size: 32px;
+	color: #183568;
+	text-align: center;
+	margin: 15px 0;
+	font-weight: bold;
 }
 
-#ok1, #ok2, #ok3, #ok4, #ok5, #ok6, #ok7, #ok8, #ok9, #ok10, #ok11, #ok12, #ok13, #ok14, #ok15, #ok16, #ok17, #ok18 {
-	border: #0C2357 1px solid;
+.divider {
+	height: 2px;
+	background: #183568;
+	margin: 15px 0;
 }
 
-#info {
-	font-size:14px;
-	font-weight:bold;
+.stat {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 10px 0;
+	padding: 10px;
+	background: rgba(24, 53, 104, 0.05);
+	border-radius: 4px;
 }
 
-body {
-	background-image:url(../background.jpg);
-	background-attachment:fixed;
-	background-repeat:no-repeat;
-	background-position:center;
-	background-size: 100% 100%;
+.stat-label {
+	font-size: 16px;
+	font-weight: bold;
+	color: #183568;
 }
 
-.misa {
-	font-size:25px;
-	color:#4D4D5B; 
-	font-family:Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+.stat-value {
+	font-size: 20px;
+	color: #e74c3c;
+	font-weight: bold;
 }
 
-.imgdes {
-	opacity:0.6;
+#score {
+	font-size: 28px;
+	color: #e74c3c;
 }
 
-.imgdes:hover {
-	opacity:1;
+#timer {
+	font-size: 24px;
+	color: #27ae60;
+	font-weight: bold;
 }
 
-a {
-	text-decoration:none;
+.game-status {
+	text-align: center;
+	min-height: 150px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 20px 0;
+	font-size: 48px;
+	font-weight: bold;
+	color: #183568;
 }
 
-a:link {
-	color:#21278C;
+/* Play Again Button */
+.btn-play-again {
+	display: none;
+	width: 100%;
+	padding: 12px;
+	margin-top: 10px;
+	border: none;
+	border-radius: 6px;
+	font-weight: bold;
+	font-size: 16px;
+	background-color: #183568;
+	color: white;
+	cursor: pointer;
+	transition: background-color 0.2s;
 }
 
-a:visited {
-	color:#21278C;
+.btn-play-again:hover {
+	background-color: #0d1f3f;
+}
+
+.game-footer {
+	text-align: center;
+	font-size: 12px;
+	color: #666;
+	margin-top: 15px;
+	border-top: 1px solid #ccc;
+	padding-top: 10px;
+}
+
+/* ===========================
+   Score Popup
+   =========================== */
+
+.score-popup {
+	position: fixed;
+	bottom: 15%;
+	right: 15%;
+	background: rgba(187, 104, 23, 0.95);
+	color: white;
+	padding: 15px 25px;
+	border-radius: 8px;
+	font-size: 32px;
+	font-weight: bold;
+	z-index: 1000;
+	animation: slideUp 0.5s ease-out;
+	pointer-events: none;
+}
+
+@keyframes slideUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+	.game-container {
+		grid-template-columns: 1fr;
+		gap: 15px;
+		height: auto;
+		min-height: 100vh;
+	}
+
+	.reference-images {
+		order: 1;
+	}
+
+	.game-area {
+		order: 2;
+	}
+
+	.game-stats {
+		order: 3;
+	}
+
+	#level {
+		font-size: 24px;
+	}
+
+	.stat-value {
+		font-size: 18px;
+	}
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+	.game-container {
+		padding: 10px;
+		gap: 10px;
+	}
+
+	.reference-images {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		gap: 5px;
+		padding: 10px;
+		max-height: 80px;
+	}
+
+	.reference-images h3 {
+		grid-column: 1 / -1;
+		margin-bottom: 0;
+		font-size: 14px;
+	}
+
+	.reference-img {
+		border-width: 1px;
+	}
+
+	.game-area {
+		padding: 10px;
+		min-height: 300px;
+	}
+
+	.game-stats {
+		padding: 15px;
+	}
+
+	#level {
+		font-size: 20px;
+	}
+
+	.stat {
+		font-size: 14px;
+	}
+
+	.stat-label {
+		font-size: 14px;
+	}
+
+	.stat-value {
+		font-size: 16px;
+	}
+
+	.score-popup {
+		font-size: 24px;
+		right: 10%;
+	}
+}
+
+@media (max-width: 480px) {
+	.game-area {
+		min-height: 250px;
+	}
+
+	.game-grid {
+		gap: 6px;
+	}
+
+	.game-card {
+		border-radius: 4px;
+	}
+
+	#level {
+		font-size: 18px;
+	}
+
+	.logo {
+		max-height: 80px;
+	}
+}
 }
 
 img {

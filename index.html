@@ -1,36 +1,147 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>MisaLala - Developed by nlkSoft</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>MisaLala - Photo Matching Game</title>
 		<link href="style/level.css" rel="stylesheet" type="text/css">
-		<link rel="icon" href="facvicon.png" type="img/gif">
+		<link rel="icon" href="facvicon.png" type="image/gif">
+		<style>
+			.home-container {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				min-height: 100vh;
+				padding: 20px;
+			}
+
+			.home-header {
+				text-align: center;
+				margin-bottom: 40px;
+			}
+
+			.home-header img {
+				max-width: 400px;
+				width: 100%;
+				height: auto;
+				margin: 20px 0;
+			}
+
+			.home-description {
+				font-size: 25px;
+				color: #4D4D5B;
+				font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+				margin-bottom: 30px;
+				text-align: center;
+			}
+
+			.home-content {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 30px;
+			}
+
+			.play-button {
+				display: inline-block;
+				margin-bottom: 20px;
+			}
+
+			.play-button img {
+				cursor: pointer;
+				transition: transform 0.2s;
+			}
+
+			.play-button img:hover {
+				transform: scale(1.05);
+			}
+
+			.level-selector {
+				display: flex;
+				gap: 20px;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+
+			.level-link {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				text-decoration: none;
+				transition: transform 0.2s, opacity 0.2s;
+			}
+
+			.level-link img {
+				width: 120px;
+				height: 120px;
+				border-radius: 8px;
+				opacity: 0.6;
+				transition: opacity 0.2s;
+			}
+
+			.level-link:hover img {
+				opacity: 1;
+				transform: scale(1.05);
+			}
+
+			.level-link span {
+				margin-top: 10px;
+				font-weight: bold;
+				color: #183568;
+				font-size: 14px;
+			}
+
+			.home-footer {
+				text-align: center;
+				font-size: 12px;
+				color: #666;
+			}
+
+			@media (max-width: 768px) {
+				.home-header img {
+					max-width: 300px;
+				}
+
+				.home-description {
+					font-size: 18px;
+				}
+
+				.level-link img {
+					width: 100px;
+					height: 100px;
+				}
+			}
+		</style>
 	</head>
 
 	<body>
-		<div class="logo" align="center" style="margin-top:50px">
-			<img src="logo.png" width="400" height="100" alt="" style="margin-top:10px; margin-bottom:10px;">
-		</div>
-		<div align="center">
-			<table>
-				<tr>
-					<td class="misa" align="center">
-						A mini game about finding similar photos<br><br>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div align="center">
-			<a href="level1.html"><img src="img/playnow.gif" alt="" width="150" height="40"></a>
-			<br><br>
-			<span style="letter-spacing:5px;">
-				<img class="imgdes" src="img/cat.jpg" alt="" title="Level 1">
-				<img class="imgdes" src="img/dog.jpg" alt="" title="Level 2">
-				<img class="imgdes" src="img/baby.jpg" alt="" title="Level 3">
-			</span><br><br>
-		</div>
-		<div align="center">
-			MisaLala &copy; 2017
+		<div class="home-container">
+			<h2 class="misalala-logo-text">MISALALA</h2>
+
+			<main class="home-content">
+				<br>
+				<p class="home-description">A mini game about finding similar photos</p>
+
+				<nav class="level-selector">
+					<a href="level1.html" class="level-link" title="Level 1 - Easy">
+						<img src="img/cat.jpg" alt="Level 1">
+						<span>Level 1</span>
+					</a>
+					<a href="level2.html" class="level-link" title="Level 2 - Medium">
+						<img src="img/dog.jpg" alt="Level 2">
+						<span>Level 2</span>
+					</a>
+					<a href="level3.html" class="level-link" title="Level 3 - Hard">
+						<img src="img/baby.jpg" alt="Level 3">
+						<span>Level 3</span>
+					</a>
+				</nav>
+
+				<footer class="home-footer">
+					<p>&copy; 2017-2026 by DuyNLK</p>
+				</footer>
+			</main>
 		</div>
 	</body>
 </html>

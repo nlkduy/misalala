@@ -1,74 +1,88 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>MisaLala - Level 2</title>
 		<link rel="stylesheet" href="style/level.css" type="text/css">
-		<link rel="icon" href="facvicon.png" type="img/gif">
-		<script src="script/level2.js"></script>
+		<link rel="icon" href="facvicon.png" type="image/gif">
 	</head>
 
 	<body>
-		<p id="rescore"></p>
+		<div class="game-container level-2">
+			<aside class="reference-images">
+				<h3>Reference Images</h3>
+				<div class="reference-grid">
+					<img src="img/dog/one.jpg" alt="Reference 1" class="reference-img">
+					<img src="img/dog/two.jpg" alt="Reference 2" class="reference-img">
+					<img src="img/dog/three.jpg" alt="Reference 3" class="reference-img">
+					<img src="img/dog/four.jpg" alt="Reference 4" class="reference-img">
+					<img src="img/dog/five.jpg" alt="Reference 5" class="reference-img">
+					<img src="img/dog/six.jpg" alt="Reference 6" class="reference-img">
+					<img src="img/dog/seven.jpg" alt="Reference 7" class="reference-img">
+					<img src="img/dog/eight.jpg" alt="Reference 8" class="reference-img">
+				</div>
+			</aside>
 
-		<table align="center">
-			<tr>
-				<td width="25%" valign="top" align="center">
-				<br>
-					<img id="ok1" src="img/dog/one.jpg" width="100" height="100" alt="">
-					<img id="ok2" src="img/dog/two.jpg" width="100" height="100" alt=""><br><br>
-					<img id="ok3" src="img/dog/three.jpg" width="100" height="100" alt="">
-					<img id="ok4" src="img/dog/four.jpg" width="100" height="100" alt=""><br><br>
-					<img id="ok5" src="img/dog/five.jpg" width="100" height="100" alt="">
-					<img id="ok6" src="img/dog/six.jpg" width="100" height="100" alt=""><br><br>
-					<img id="ok7" src="img/dog/seven.jpg" width="100" height="100" alt="">
-					<img id="ok8" src="img/dog/eight.jpg" width="100" height="100" alt="">
-				</td>
-				<td width="50%">
-					<table>
-						<tr>
-							<td width="150" height="150"><img id="x1" onClick="show(this.id)" src="img/emty2.jpg" alt=""></td>
-							<td width="150" height="150"><img id="x2" onClick="show(this.id)" src="img/emty2.jpg" alt=""></td>
-							<td width="150" height="150"><img id="x3" onClick="show(this.id)" src="img/emty2.jpg" alt=""></td>
-							<td width="150" height="150"><img id="x4" onClick="show(this.id)" src="img/emty2.jpg" alt=""></td>
-						</tr>
-						<tr>
-							<td width="150" height="150"><img id="x5" onClick="show(this.id)" src="img/emty2.jpg" alt=""></td>
-							<td width="150" height="150"><img id="x6" onClick="show(this.id)" src="img/emty2.jpg" alt=""></td>
-							<td width="150" height="150"><img id="x7" onClick="show(this.id)" src="img/emty2.jpg" alt=""></td>
-							<td width="150" height="150"><img id="x8" onClick="show(this.id)" src="img/emty2.jpg" alt=""></td>
-						</tr>
-						<tr>
-							<td width="150" height="150"><img id="x9" onClick="show(this.id)" src="img/emty2.jpg" alt=""></td>
-							<td width="150" height="150"><img id="x10" onClick="show(this.id)" src="img/emty2.jpg" alt=""></td>
-							<td width="150" height="150"><img id="x11" onClick="show(this.id)" src="img/emty2.jpg" alt=""></td>
-							<td width="150" height="150"><img id="x12" onClick="show(this.id)" src="img/emty2.jpg" alt=""></td>
-						</tr>
-						<tr>
-							<td width="150" height="150"><img id="x13" onClick="show(this.id)" src="img/emty2.jpg" alt=""></td>
-							<td width="150" height="150"><img id="x14" onClick="show(this.id)" src="img/emty2.jpg" alt=""></td>
-							<td width="150" height="150"><img id="x15" onClick="show(this.id)" src="img/emty2.jpg" alt=""></td>
-							<td width="150" height="150"><img id="x16" onClick="show(this.id)" src="img/emty2.jpg" alt=""></td>
-						</tr>
-					</table>
-				</td>
-				<td width="25%" valign="top">
-					<div align="center">	 
-						<br>   
-						<span id="info">
-							&copy; nlkSoft<br>
-						</span>
-						<img src="logo.png" width="200" height="100" alt=""><br>
-						<b id="level">Level 2</b><br><hr style="width:50%; color:#183568"><br>
-						<b>Time:&nbsp;</b><b id="second"></b><br><br>
-						<b id="labelscore">Score:&nbsp;</b>
-						<b id="score"></b><br><br>
-						<b id="stt"></b><br><br>
-						<button id="playagain" onClick="playagain()">Play again !</button>
-					</div>
-				</td>
-			</tr>
-		</table>
+			<main class="game-area">
+				<div id="game-grid" class="game-grid"></div>
+			</main>
+
+			<aside class="game-stats">
+				<div class="logo-container">
+					<a href="index.html" class="misalala-logo-text">MISALALA</a>
+				</div>
+				<h2 id="level">Level 2</h2>
+				<div class="divider"></div>
+				<div class="stat">
+					<span class="stat-label">Time:</span>
+					<span class="stat-value" id="timer">60s</span>
+				</div>
+				<div class="stat">
+					<span class="stat-label">Score:</span>
+					<span class="stat-value" id="score">0</span>
+				</div>
+				<div id="status" class="game-status"></div>
+				<button id="playagain" class="btn-play-again">Play Again</button>
+				<footer class="game-footer">
+					<p>&copy; 2017-2026 by DuyNLK</p>
+				</footer>
+			</aside>
+		</div>
+
+		<div id="score-popup"></div>
+
+		<script src="script/Game.js"></script>
+		<script>
+			const game = new Game({
+				level: 2,
+				gridSize: 16,
+				timeLimit: 60,
+				imageSource: [
+					'img/dog/one.jpg',
+					'img/dog/one.jpg',
+					'img/dog/two.jpg',
+					'img/dog/two.jpg',
+					'img/dog/three.jpg',
+					'img/dog/three.jpg',
+					'img/dog/four.jpg',
+					'img/dog/four.jpg',
+					'img/dog/five.jpg',
+					'img/dog/five.jpg',
+					'img/dog/six.jpg',
+					'img/dog/six.jpg',
+					'img/dog/seven.jpg',
+					'img/dog/seven.jpg',
+					'img/dog/eight.jpg',
+					'img/dog/eight.jpg',
+				],
+				containerSelector: '#game-grid',
+				scoreDisplaySelector: '#score',
+				timerDisplaySelector: '#timer',
+				statusDisplaySelector: '#status',
+			});
+
+			window.game = game;
+		</script>
 	</body>
 </html>
