@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>MISALALA - Photo Matching Game</title>
+		<title>MISALALA - A photo matching game.</title>
 		<link href="style/level.css" rel="stylesheet" type="text/css">
 		<link rel="icon" href="favicon.png" type="image/gif">
 		<style>
@@ -28,19 +28,22 @@
 				margin: 20px 0;
 			}
 
-			.home-description {
-				font-size: 25px;
-				color: #4D4D5B;
-				font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
-				margin-bottom: 30px;
-				text-align: center;
+			.text-panel {
+				background-color: rgba(255, 255, 255, 0.95);
+				padding: 40px 50px;
+				border-radius: 12px;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 30px;
 			}
 
 			.home-content {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				gap: 30px;
+				gap: 0;
 			}
 
 			.play-button {
@@ -57,11 +60,40 @@
 				transform: scale(1.05);
 			}
 
+			.play-button-link {
+				display: inline-block;
+				text-decoration: none;
+				margin-bottom: 30px;
+			}
+
+			.play-button-text {
+				padding: 15px 40px;
+				font-size: 18px;
+				font-weight: bold;
+				color: #fff;
+				background-color: #183568;
+				border: none;
+				border-radius: 8px;
+				cursor: pointer;
+				transition: background-color 0.2s, transform 0.2s;
+				font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+			}
+
+			.play-button-text:hover {
+				background-color: #0f1f3d;
+				transform: scale(1.05);
+			}
+
+			.play-button-text:active {
+				transform: scale(0.98);
+			}
+
 			.level-selector {
 				display: flex;
 				gap: 20px;
 				justify-content: center;
 				flex-wrap: wrap;
+				width: 100%;
 			}
 
 			.level-link {
@@ -117,31 +149,33 @@
 
 	<body>
 		<div class="home-container">
-			<h2 class="misalala-logo-text"><img src="favicon.png" alt="favicon" style="width: 50px; margin-right: 10px; vertical-align: middle;">MISALALA</h2>
-
-			<main class="home-content">
-				<br>
-				<p class="home-description">A mini game about finding similar photos</p>
+			<div class="text-panel">
+				<h2 class="misalala-logo-text"><img src="favicon.png" alt="favicon" style="width: 50px; margin-right: 10px; vertical-align: middle;">MISALALA</h2>
+				<p class="home-description">A photo matching game.</p>
 
 				<nav class="level-selector">
 					<a href="level1.html" class="level-link" title="Level 1 - Easy">
 						<img src="img/cat.jpg" alt="Level 1">
-						<span>Level 1</span>
+						<span>Level 1 (3x3)</span>
 					</a>
 					<a href="level2.html" class="level-link" title="Level 2 - Medium">
 						<img src="img/dog.jpg" alt="Level 2">
-						<span>Level 2</span>
+						<span>Level 2 (4x4)</span>
 					</a>
 					<a href="level3.html" class="level-link" title="Level 3 - Hard">
 						<img src="img/baby.jpg" alt="Level 3">
-						<span>Level 3</span>
+						<span>Level 3 (6x6)</span>
 					</a>
 				</nav>
+
+				<a href="level1.html" class="play-button-link">
+					<button class="play-button-text">Play Now &rarr;</button>
+				</a>
 
 				<footer class="home-footer">
 					<p>&copy; 2017-2026 by DuyNLK</p>
 				</footer>
-			</main>
+			</div>
 		</div>
 	</body>
 </html>
