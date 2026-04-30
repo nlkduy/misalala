@@ -1,8 +1,8 @@
-# MisaLala
+# MISALALA
 
 A fun memory matching game where you find pairs of similar pictures using vanilla JavaScript.
 
-![Game Screenshot](https://github.com/duynlk/misalala/assets/16206786/0446eede-eb8b-41bc-9cef-d17eb8f9a541)
+![Game Screenshot](screenshot.png)
 
 ## Description
 
