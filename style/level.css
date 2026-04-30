@@ -77,8 +77,8 @@ html, body {
 .reference-img {
 	width: 100%;
 	height: auto;
-	border: 2px solid #0C2357;
-	border-radius: 4px;
+	border: 1px solid #ddd;
+	border-radius: 10px;
 	object-fit: cover;
 	aspect-ratio: 1;
 }
