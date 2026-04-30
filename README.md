@@ -1,6 +1,6 @@
 # MISALALA
 
-A fun memory matching game where you find pairs of similar pictures using vanilla JavaScript.
+A fun memory matching game where you find pairs of similar pictures using pure JavaScript.
 
 ![Game Screenshot](screenshot.png)
 
@@ -41,7 +41,7 @@ No additional dependencies required!
 
 - HTML5
 - CSS3 (Flexbox/Grid)
-- Vanilla JavaScript (ES6+)
+- Pure JavaScript
 
 ## Project Structure
 
