@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>MISALALA - Level 1</title>
+		<link rel="stylesheet" href="style/level.css" type="text/css">
+		<link rel="icon" href="favicon.png" type="image/gif">
+	</head>
+
+	<body>
+		<div class="game-container" id="game-container">
+			<aside class="reference-images">
+				<h3>Reference Images</h3>
+				<div class="reference-grid" id="reference-grid">
+					<!-- Dynamically populated -->
+				</div>
+			</aside>
+
+			<main class="game-area">
+				<div id="game-grid" class="game-grid"></div>
+			</main>
+
+			<aside class="game-stats">
+				<div class="logo-container">
+					<a href="index.html" class="misalala-logo-text"><img src="favicon.png" alt="favicon" style="width: 50px; margin-right: 8px; vertical-align: middle;">MISALALA</a>
+				</div>
+				<h2 id="level">Level 1</h2>
+				<div class="divider"></div>
+				<div class="stat">
+					<span class="stat-label">Time:</span>
+					<span class="stat-value" id="timer">30s</span>
+				</div>
+				<div class="stat">
+					<span class="stat-label">Score:</span>
+					<span class="stat-value" id="score">0</span>
+				</div>
+				<div id="status" class="game-status"></div>
+				<button id="playagain" class="btn-play-again">Play Again</button>
+				<footer class="game-footer">
+				<p>&copy; 2017-2026 by DiLabs | <b>Version 1.1</b></p>
+				</footer>
+			</aside>
+		</div>
+
+		<div id="end-screen" style="display: none; text-align: center; padding: 50px;">
+			<h1>Game Complete!</h1>
+			<p>Your final score: <span id="final-score"></span></p>
+			<p>Redirecting to main page...</p>
+		</div>
+
+		<div id="score-popup"></div>
+
+		<script src="script/game.js"></script>
+		<script>
+			const urlParams = new URLSearchParams(window.location.search);
+			const level = urlParams.get('level') || '1';
+
+			if (level === 'end') {
+				document.getElementById('game-container').style.display = 'none';
+				document.getElementById('end-screen').style.display = 'block';
+				const score = sessionStorage.getItem('record') || 0;
+				document.getElementById('final-score').textContent = score;
+				setTimeout(() => window.location.href = 'index.html', 5000);
+			} else {
+				const levelNum = parseInt(level);
+				document.title = `MISALALA - Level ${level}`;
+				document.getElementById('level').textContent = `Level ${level}`;
+				document.getElementById('game-container').classList.add(`level-${level}`);
+
+				const referenceImages = {
+					1: ['img/cat/one.jpg', 'img/cat/two.jpg', 'img/cat/three.jpg', 'img/cat/four.jpg', 'img/cat/lucky.jpg'],
+					2: ['img/dog/one.jpg', 'img/dog/two.jpg', 'img/dog/three.jpg', 'img/dog/four.jpg', 'img/dog/five.jpg', 'img/dog/six.jpg', 'img/dog/seven.jpg', 'img/dog/eight.jpg'],
+					3: Array.from({length: 18}, (_, i) => `img/total/${i+1}.jpg`)
+				};
+
+				const refGrid = document.getElementById('reference-grid');
+				refGrid.innerHTML = '';
+				referenceImages[levelNum].forEach(src => {
+					const img = document.createElement('img');
+					img.src = src;
+					img.alt = 'Reference';
+					img.className = 'reference-img';
+					refGrid.appendChild(img);
+				});
+
+				const imageSources = {
+					1: [
+						'img/cat/one.jpg', 'img/cat/one.jpg',
+						'img/cat/two.jpg', 'img/cat/two.jpg',
+						'img/cat/three.jpg', 'img/cat/three.jpg',
+						'img/cat/four.jpg', 'img/cat/four.jpg',
+						'img/cat/lucky.jpg',
+					],
+					2: [
+						'img/dog/one.jpg', 'img/dog/one.jpg',
+						'img/dog/two.jpg', 'img/dog/two.jpg',
+						'img/dog/three.jpg', 'img/dog/three.jpg',
+						'img/dog/four.jpg', 'img/dog/four.jpg',
+						'img/dog/five.jpg', 'img/dog/five.jpg',
+						'img/dog/six.jpg', 'img/dog/six.jpg',
+						'img/dog/seven.jpg', 'img/dog/seven.jpg',
+						'img/dog/eight.jpg', 'img/dog/eight.jpg',
+					],
+					3: Array.from({length: 36}, (_, i) => `img/total/${Math.floor(i/2)+1}.jpg`)
+				};
+
+				const configs = {
+					1: { gridSize: 9, timeLimit: 30 },
+					2: { gridSize: 16, timeLimit: 60 },
+					3: { gridSize: 36, timeLimit: 120 }
+				};
+
+				const config = {
+					level: levelNum,
+					...configs[levelNum],
+					imageSource: imageSources[levelNum],
+					containerSelector: '#game-grid',
+					scoreDisplaySelector: '#score',
+					timerDisplaySelector: '#timer',
+					statusDisplaySelector: '#status',
+				};
+
+				document.getElementById('timer').textContent = `${config.timeLimit}s`;
+
+				const game = new Game(config);
+				window.game = game;
+			}
+		</script>
+	</body>
+</html>

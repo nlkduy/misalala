@@ -186,7 +186,8 @@ class Game {
       this.showScorePopup('+100');
 
       // Check if game won
-      if (this.gameState.matchesFound === this.gridSize / 2) {
+      const totalPairs = (this.gridSize - (this.level === 1 ? 1 : 0)) / 2;
+      if (this.gameState.matchesFound === totalPairs) {
         this.addScore(1000);
         this.showScorePopup('+1000 (Bonus!)');
         this.winGame();
@@ -275,8 +276,16 @@ class Game {
     
     // Set flag for level progression
     sessionStorage.setItem('level_progression', 'true');
+    sessionStorage.setItem('record', this.gameState.score);
     
-    this.showPlayAgainButton();
+    // Redirect to next level or end
+    setTimeout(() => {
+      if (this.level < 3) {
+        window.location.href = `game.html?level=${this.level + 1}`;
+      } else {
+        window.location.href = `game.html?level=end`;
+      }
+    }, 2000);
   }
 
   /**
@@ -314,10 +323,9 @@ class Game {
   loadScore() {
     const isProgressing = sessionStorage.getItem('level_progression');
     if (isProgressing) {
-      // Clear the flag after using it
       sessionStorage.removeItem('level_progression');
-      const saved = localStorage.getItem(`misalala_score_level${this.level}`);
-      return saved ? parseInt(saved, 10) : 0;
+      const prevScore = sessionStorage.getItem('record');
+      return prevScore ? parseInt(prevScore) : 0;
     }
     // Direct refresh or new game - reset score to 0
     return 0;
