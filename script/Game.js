@@ -338,6 +338,12 @@ class Game {
    * Reset game
    */
   reset() {
+    // Hide the Play Again button and game status
+    const btn = document.getElementById('playagain');
+    if (btn) btn.style.display = 'none';
+    const statusElement = document.querySelector(this.statusDisplaySelector);
+    if (statusElement) statusElement.innerHTML = '';
+
     this.gameState = {
       score: 0,
       timeRemaining: this.timeLimit,

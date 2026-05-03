@@ -3,6 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="MISALALA - A fun and challenging photo matching memory game with 3 levels of difficulty. Match images to test your memory and improve your score.">
+		<meta name="author" content="DiLabs">
 		<title>MISALALA - A photo matching game.</title>
 		<link href="style/level.css" rel="stylesheet" type="text/css">
 		<link rel="icon" href="favicon.png" type="image/gif">
@@ -17,6 +19,7 @@
 			}
 
 			.text-panel {
+				width: 30%;
 				background-color: rgba(255, 255, 255, 0.95);
 				padding: 40px 50px;
 				border-radius: 12px;
@@ -64,38 +67,51 @@
 
 			.level-selector {
 				display: flex;
-				gap: 20px;
+				flex-direction: column;
+				gap: 12px;
 				justify-content: center;
-				flex-wrap: wrap;
 				width: 100%;
 			}
 
 			.level-link {
 				display: flex;
-				flex-direction: column;
+				flex-direction: row;
 				align-items: center;
+				gap: 20px;
+				padding: 15px 20px;
+				border: 1px solid #183568;
+				border-radius: 8px;
 				text-decoration: none;
-				transition: transform 0.2s, opacity 0.2s;
+				transition: all 0.3s ease;
+				background-color: #f9fafc;
+			}
+
+			.level-link:hover {
+				border-color: #0f1f3d;
+				background-color: #fff;
+				box-shadow: 0 4px 12px rgba(24, 53, 104, 0.15);
+				transform: translateY(-2px);
 			}
 
 			.level-link img {
-				width: 120px;
-				height: 120px;
-				border-radius: 8px;
-				opacity: 0.6;
-				transition: opacity 0.2s;
+				width: 80px;
+				height: 80px;
+				border-radius: 6px;
+				object-fit: cover;
+				transition: transform 0.3s ease;
+				flex-shrink: 0;
 			}
 
 			.level-link:hover img {
-				opacity: 1;
-				transform: scale(1.05);
+				transform: scale(1.08);
 			}
 
 			.level-link span {
-				margin-top: 10px;
-				font-weight: bold;
+				font-weight: 600;
 				color: #183568;
-				font-size: 14px;
+				font-size: 16px;
+				white-space: nowrap;
+				flex-grow: 1;
 			}
 
 			.home-footer {
