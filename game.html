@@ -55,8 +55,20 @@
 		<script>
 			const urlParams = new URLSearchParams(window.location.search);
 			const level = urlParams.get('level') || '1';
-
-			if (level === 'end') {
+			let hasAccess = true;
+			// Check level access
+			if (level !== '1' && level !== 'end') {
+				const levelNum = parseInt(level);
+				const prevLevel = levelNum - 1;
+				if (!localStorage.getItem(`level_${prevLevel}_completed`)) {
+					alert(`You must complete Level ${prevLevel} first!`);
+					window.location.href = 'index.html';
+					hasAccess = false;
+				}
+			}
+			if (!hasAccess) {
+				// Access denied; stop running game logic
+			} else if (level === 'end') {
 				document.getElementById('game-container').style.display = 'none';
 				document.getElementById('end-screen').style.display = 'block';
 				const score = sessionStorage.getItem('record') || 0;

@@ -278,6 +278,9 @@ class Game {
     sessionStorage.setItem('level_progression', 'true');
     sessionStorage.setItem('record', this.gameState.score);
     
+    // Mark level as completed
+    localStorage.setItem(`level_${this.level}_completed`, 'true');
+    
     // Redirect to next level or end
     setTimeout(() => {
       if (this.level < 3) {

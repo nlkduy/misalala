@@ -104,15 +104,9 @@
 				color: #666;
 			}
 
-			@media (max-width: 768px) {
-				.home-description {
-					font-size: 18px;
-				}
-
-				.level-link img {
-					width: 100px;
-					height: 100px;
-				}
+			.level-link.disabled {
+				opacity: 0.3;
+				pointer-events: none;
 			}
 		</style>
 	</head>
@@ -147,5 +141,22 @@
 				</footer>
 			</div>
 		</div>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				// Disable levels if previous not completed
+				const levelLinks = document.querySelectorAll('.level-link');
+				levelLinks.forEach(link => {
+					const href = link.getAttribute('href');
+					const match = href.match(/level=(\d+)/);
+					if (match) {
+						const levelNum = parseInt(match[1]);
+						if (levelNum > 1 && !localStorage.getItem(`level_${levelNum - 1}_completed`)) {
+							link.classList.add('disabled');
+						}
+					}
+				});
+			});
+		</script>
 	</body>
 </html>

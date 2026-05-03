@@ -6,7 +6,7 @@ A fun memory matching game where you find pairs of similar pictures using pure J
 
 ## Description
 
-MisaLala is a classic memory card game built with HTML, CSS, and JavaScript. Players flip cards to reveal images and match pairs. The game features multiple levels with increasing difficulty, score tracking, and a clean, responsive design.
+MisaLala is a classic memory card game built with HTML, CSS, and JavaScript. Players flip cards to reveal images and match pairs. The game features multiple levels with increasing difficulty, score tracking, and a clean, responsive design. The codebase has been modernized using ES6+ JavaScript with a consolidated, modular structure.
 
 ## How to Play
 
@@ -45,11 +45,9 @@ No additional dependencies required!
 
 ## Project Structure
 
-- `index.html`: Main game page
-- `level1.html`, `level2.html`, `level3.html`: Individual level pages
-- `script/`: JavaScript files
-  - `Game.js`: Main game logic
-  - `level1.js`, `level2.js`, `level3.js`: Level-specific scripts
+- `index.html`: Home page with level selection
+- `game.html`: Dynamic game page for all levels (uses URL parameters like `?level=1`)
+- `script/Game.js`: Consolidated game logic for all levels
 - `style/`: CSS stylesheets
 - `img/`: Game images
 
