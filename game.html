@@ -9,39 +9,28 @@
 	</head>
 
 	<body>
-		<div class="game-container" id="game-container">
-			<aside class="reference-images">
-				<h3>Reference Images</h3>
-				<div class="reference-grid" id="reference-grid">
-					<!-- Dynamically populated -->
-				</div>
-			</aside>
+		<header class="game-header">
+			<div class="header-brand">
+				<a href="index.html" class="misalala-logo-text"><img src="favicon.png" alt="MISALALA logo" class="favicon-logo">MISALALA</a>
+				<div class="level-badge"><span id="level">Level 1</span></div>
+			</div>
+			<div class="header-stats">
+				<div class="stat"><span>Time</span><strong id="timer">30s</strong></div>
+				<div class="stat"><span>Score</span><strong id="score">0</strong></div>
+			</div>
+		</header>
 
-			<main class="game-area">
-				<div id="game-grid" class="game-grid"></div>
-			</main>
-
-			<aside class="game-stats">
-				<div class="logo-container">
-					<a href="index.html" class="misalala-logo-text"><img src="favicon.png" alt="favicon" class="favicon-logo">MISALALA</a>
+		<main class="game-main">
+			<section class="game-container" id="game-container">
+				<div class="game-area">
+					<div id="game-grid" class="game-grid"></div>
 				</div>
-				<h2 id="level">Level 1</h2>
-				<div class="divider"></div>
-				<div class="stat">
-					<span class="stat-label">Time:</span>
-					<span class="stat-value" id="timer">30s</span>
+				<div class="game-controls">
+					<div id="status" class="game-status"></div>
+					<button id="playagain" class="btn-play-again">Play Again</button>
 				</div>
-				<div class="stat">
-					<span class="stat-label">Score:</span>
-					<span class="stat-value" id="score">0</span>
-				</div>
-				<div id="status" class="game-status"></div>
-				<button id="playagain" class="btn-play-again">Play Again</button>
-				<footer class="game-footer">
-				<p>&copy; 2017-2026 by DiLabs | <b>Version 1.2</b></p>
-				</footer>
-			</aside>
-		</div>
+			</section>
+		</main>
 
 		<div id="end-screen" style="display: none; text-align: center; padding: 50px;">
 			<h1>Game Complete!</h1>
@@ -50,6 +39,10 @@
 		</div>
 
 		<div id="score-popup"></div>
+
+		<footer class="home-footer">
+			<p>&copy; 2017-2026 by DiLabs | <b>Version 1.2</b></p>
+		</footer>
 
 		<script src="script/Game.js"></script>
 		<script>
@@ -79,22 +72,6 @@
 				document.title = `MISALALA - Level ${level}`;
 				document.getElementById('level').textContent = `Level ${level}`;
 				document.getElementById('game-container').classList.add(`level-${level}`);
-
-				const referenceImages = {
-					1: ['img/cat/one.jpg', 'img/cat/two.jpg', 'img/cat/three.jpg', 'img/cat/four.jpg', 'img/cat/lucky.jpg'],
-					2: ['img/dog/one.jpg', 'img/dog/two.jpg', 'img/dog/three.jpg', 'img/dog/four.jpg', 'img/dog/five.jpg', 'img/dog/six.jpg', 'img/dog/seven.jpg', 'img/dog/eight.jpg'],
-					3: Array.from({length: 18}, (_, i) => `img/baby/${i+1}.jpg`)
-				};
-
-				const refGrid = document.getElementById('reference-grid');
-				refGrid.innerHTML = '';
-				referenceImages[levelNum].forEach(src => {
-					const img = document.createElement('img');
-					img.src = src;
-					img.alt = 'Reference';
-					img.className = 'reference-img';
-					refGrid.appendChild(img);
-				});
 
 				const imageSources = {
 					1: [

@@ -16,7 +16,8 @@ A comprehensive modernization of the legacy 2017 MisaLala photo-matching game, t
 - **Flexbox & CSS Grid**: Modern layout system for flexible, responsive designs
 - **Mobile-First Approach**: Fully responsive across desktop, tablet, and mobile devices
 - **Media Queries**: Proper breakpoints for different screen sizes
-- **Clean CSS**: Modern, organized stylesheet with proper naming conventions
+- **External Stylesheet**: All CSS consolidated into single `level.css` (no inline styles or `<style>` tags)
+- **Clean CSS Architecture**: Modern, organized stylesheet with proper naming conventions
 
 ### 3. **State Management**
 - **localStorage Integration**: Score tracking persists across sessions per level
@@ -40,23 +41,19 @@ A comprehensive modernization of the legacy 2017 MisaLala photo-matching game, t
 
 ```
 misalala/
-├── index.html                 # Home page (modernized)
-├── level1.html               # Level 1 (3x3 grid, 9 cards)
-├── level2.html               # Level 2 (4x4 grid, 16 cards)
-├── level3.html               # Level 3 (6x6 grid, 36 cards)
+├── index.html                 # Home page with level selection
+├── game.html                  # ✨ Dynamic game page (handles all levels via URL params)
 ├── script/
-│   ├── Game.js              # ✨ NEW: Unified game engine (ES6 class)
-│   ├── level1.js            # (Legacy - can be removed)
-│   ├── level2.js            # (Legacy - can be removed)
-│   └── level3.js            # (Legacy - can be removed)
+│   └── Game.js               # ✨ Unified game engine (ES6 class)
 ├── style/
-│   └── level.css            # ✨ Modernized responsive CSS
-├── img/                      # Game assets
-│   ├── cat/                 # Level 1 images
-│   ├── dog/                 # Level 2 images
-│   └── total/               # Level 3 images
-├── background.jpg           # Game background
-└── logo.png                 # MisaLala logo
+│   └── level.css             # ✨ Modern responsive CSS (all styles consolidated)
+├── img/                       # Game assets
+│   ├── cat/                  # Level 1 images (5 unique pairs)
+│   ├── dog/                  # Level 2 images (8 unique pairs)
+│   └── baby/                 # Level 3 images (18 unique pairs)
+├── README.md                 # Project documentation
+├── LICENSE.md                # License information
+└── favicon.png               # Application icon
 ```
 
 ## 🎮 Game Features
@@ -149,20 +146,45 @@ const game = new Game({
 | Code Duplication | Massive | Eliminated |
 | Maintainability | Poor | Excellent |
 
-## 🔄 Migration Notes
+## 🔄 Dynamic Level Loading
 
-The game now uses ES modules. All three level files load the same `Game.js` with different configurations:
+The modernized architecture uses a single `game.html` file that dynamically loads levels based on URL parameters. Navigation happens through `index.html`:
 
+```
+index.html  →  game.html?level=1  →  Game.js (with level-specific config)
+             →  game.html?level=2  
+             →  game.html?level=3
+```
+
+**Game Initialization Flow**:
+1. URL parameter `?level=X` is parsed from query string
+2. Level access is validated (must complete previous level first)
+3. Appropriate configuration (grid size, time limit, images) is loaded
+4. Game engine initializes with single reusable `Game` class
+5. Game state persists in localStorage for score tracking
+
+**Example**: Accessing Level 2:
 ```html
-<script type="module">
-  import { Game } from './script/Game.js';
-  
-  const game = new Game({
-    level: 1,
-    gridSize: 9,
-    // ... level-specific config
-  });
-</script>
+<a href="game.html?level=2">Level 2</a>
+```
+
+Then in `game.html`:
+```javascript
+const urlParams = new URLSearchParams(window.location.search);
+const level = urlParams.get('level') || '1';
+
+const configs = {
+  1: { gridSize: 9, timeLimit: 30 },
+  2: { gridSize: 16, timeLimit: 60 },
+  3: { gridSize: 36, timeLimit: 120 }
+};
+
+const game = new Game({
+  level: parseInt(level),
+  ...configs[level],
+  imageSource: imageSources[level],
+  // ... other config
+});
 ```
 
 ## 📋 Future Enhancement Ideas
@@ -186,5 +208,6 @@ The game now uses ES modules. All three level files load the same `Game.js` with
 
 ---
 
-**Last Updated**: April 26, 2026
-**Modernization Completed**: Full ES6+, Responsive Design, Clean Architecture
+**Last Updated**: May 4, 2026
+**Status**: ✅ Modernization Complete
+**Key Achievement**: Single dynamic game.html, consolidated Game.js, responsive CSS, localStorage persistence
