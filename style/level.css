@@ -424,3 +424,143 @@ html, body {
 img {
 	border-radius:15px;
 }
+
+/* ===========================
+   Home Page Styles
+   =========================== */
+
+.home-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 20px;
+}
+
+.text-panel {
+	width: 30%;
+	background-color: rgba(255, 255, 255, 0.95);
+	padding: 40px 50px;
+	border-radius: 12px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
+}
+
+.home-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0;
+}
+
+.play-button-link {
+	display: inline-block;
+	text-decoration: none;
+	margin-bottom: 30px;
+}
+
+.play-button-text {
+	padding: 15px 40px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #fff;
+	background-color: #183568;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.2s, transform 0.2s;
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+}
+
+.play-button-text:hover {
+	background-color: #0f1f3d;
+	transform: scale(1.05);
+}
+
+.play-button-text:active {
+	transform: scale(0.98);
+}
+
+.level-selector {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	justify-content: center;
+	width: 100%;
+}
+
+.level-link {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 20px;
+	padding: 15px 20px;
+	border: 1px solid #183568;
+	border-radius: 8px;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	background-color: #f9fafc;
+}
+
+.level-link:hover {
+	border-color: #0f1f3d;
+	background-color: #fff;
+	box-shadow: 0 4px 12px rgba(24, 53, 104, 0.15);
+	transform: translateY(-2px);
+}
+
+.level-link img {
+	width: 80px;
+	height: 80px;
+	border-radius: 6px;
+	object-fit: cover;
+	transition: transform 0.3s ease;
+	flex-shrink: 0;
+}
+
+.level-link:hover img {
+	transform: scale(1.08);
+}
+
+.level-link span {
+	font-weight: 600;
+	color: #183568;
+	font-size: 16px;
+	white-space: nowrap;
+	flex-grow: 1;
+}
+
+.home-footer {
+	text-align: center;
+	font-size: 12px;
+	color: #666;
+}
+
+.level-link.disabled {
+	opacity: 0.3;
+	pointer-events: none;
+}
+
+/* ===========================
+   End Screen Styles
+   =========================== */
+
+#end-screen {
+	display: none;
+	text-align: center;
+	padding: 50px;
+}
+
+/* ===========================
+   Favicon Styles
+   =========================== */
+
+.favicon-logo {
+	width: 50px;
+	margin-right: 8px;
+	vertical-align: middle;
+}
