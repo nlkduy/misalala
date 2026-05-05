@@ -69,9 +69,7 @@ class Game {
     container.innerHTML = '';
 
     const gridColumns = Math.sqrt(this.gridSize);
-    container.style.display = 'grid';
     container.style.gridTemplateColumns = `repeat(${gridColumns}, 1fr)`;
-    container.style.gap = '10px';
 
     for (let i = 0; i < this.gridSize; i++) {
       const card = document.createElement('div');
@@ -95,7 +93,8 @@ class Game {
    */
   attachEventListeners() {
     this.cards.forEach((card) => {
-      card.addEventListener('click', (e) => this.handleCardClick(e));
+      // `pointerdown` feels snappier on touch devices than `click`.
+      card.addEventListener('pointerdown', (e) => this.handleCardClick(e));
     });
   }
 
@@ -104,6 +103,15 @@ class Game {
    */
   handleCardClick(event) {
     if (this.isProcessing || this.gameState.gameOver) return;
+
+    // Ignore non-primary mouse buttons.
+    if (
+      event.pointerType === 'mouse' &&
+      typeof event.button === 'number' &&
+      event.button !== 0
+    ) {
+      return;
+    }
 
     const card = event.currentTarget;
     const cardIndex = parseInt(card.dataset.cardIndex);

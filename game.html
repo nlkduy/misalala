@@ -10,6 +10,7 @@
 
 	<body class="game-page">
 		<header class="game-header">
+			<div class="header-credit" aria-hidden="true">by DiLabs</div>
 			<div class="header-brand">
 				<a href="index.html" class="misalala-logo-text"><img src="favicon.png" alt="MISALALA logo" class="favicon-logo">MISALALA</a>
 				<div class="level-badge"><span id="level">Level 1</span></div>
@@ -45,7 +46,7 @@
 		<div id="score-popup"></div>
 
 		<footer class="game-footer">
-			<p>&copy; 2017-2026 by DiLabs | <b>Version 1.2</b></p>
+			<p>&copy; 2017-2026 by DiLabs | <b>Version v1.3</b></p>
 		</footer>
 
 		<script src="script/Game.js"></script>
@@ -67,7 +68,7 @@
 				// Access denied; stop running game logic
 			} else if (level === 'end') {
 				document.getElementById('game-container').style.display = 'none';
-			document.getElementById('end-screen').classList.add('active');
+				document.getElementById('end-screen').classList.add('active');
 				const score = sessionStorage.getItem('record') || 0;
 				document.getElementById('final-score').textContent = score;
 				setTimeout(() => window.location.href = 'index.html', 5000);

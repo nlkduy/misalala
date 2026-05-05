@@ -8,6 +8,10 @@ A fun memory matching game where you find pairs of similar pictures using pure J
 
 MisaLala is a classic memory card game built with HTML, CSS, and JavaScript. Players flip cards to reveal images and match pairs. The game features multiple levels with increasing difficulty, score tracking, and a clean, responsive design. The codebase has been modernized using ES6+ JavaScript with a consolidated, modular structure.
 
+## Live Demo
+
+- [Play MISALALA online](https://nlkduy.github.io/misalala/)
+
 ## How to Play
 
 1. Open `index.html` in your web browser.
