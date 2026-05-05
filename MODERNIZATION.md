@@ -16,7 +16,7 @@ A comprehensive modernization of the legacy 2017 MisaLala photo-matching game, t
 - **Flexbox & CSS Grid**: Modern layout system for flexible, responsive designs
 - **Mobile-First Approach**: Fully responsive across desktop, tablet, and mobile devices
 - **Media Queries**: Proper breakpoints for different screen sizes
-- **External Stylesheet**: All CSS consolidated into single `level.css` (no inline styles or `<style>` tags)
+- **External Stylesheet**: All CSS consolidated into single `Game.css` (no inline styles or `<style>` tags)
 - **Clean CSS Architecture**: Modern, organized stylesheet with proper naming conventions
 
 ### 3. **State Management**
@@ -46,7 +46,7 @@ misalala/
 ├── script/
 │   └── Game.js               # ✨ Unified game engine (ES6 class)
 ├── style/
-│   └── level.css             # ✨ Modern responsive CSS (all styles consolidated)
+│   └── Game.css             # ✨ Modern responsive CSS (all styles consolidated)
 ├── img/                       # Game assets
 │   ├── cat/                  # Level 1 images (5 unique pairs)
 │   ├── dog/                  # Level 2 images (8 unique pairs)

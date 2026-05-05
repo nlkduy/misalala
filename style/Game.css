@@ -574,3 +574,45 @@ button, input, select {
 .favicon-logo {
 	vertical-align: middle;
 }
+
+/* ===========================
+   HUD colors & centered header
+   =========================== */
+#timer {
+	color: #e53935;
+}
+
+#score {
+	color: #2e7d32;
+}
+
+/* Center title + level badge within the 3-col header */
+.game-header {
+	grid-template-columns: 1fr auto 1fr;
+}
+
+.header-brand {
+	grid-column: 2;
+	justify-content: center;
+	width: 100%;
+}
+
+.header-stats {
+	grid-column: 3;
+	justify-self: end;
+}
+
+@media (max-width: 720px) {
+	.game-header {
+		grid-template-columns: 1fr;
+	}
+
+	.header-brand {
+		grid-column: auto;
+		width: 100%;
+	}
+
+	.header-stats {
+		grid-column: auto;
+	}
+}

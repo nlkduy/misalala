@@ -13,7 +13,7 @@ misalala/
 ├── script/
 │   └── Game.js            # Unified game engine (ES6 class, no global vars)
 ├── style/
-│   └── level.css          # Consolidated responsive CSS (all styles external)
+│   └── Game.css          # Consolidated responsive CSS (all styles external)
 ├── img/
 │   ├── cat/               # Level 1 images
 │   ├── dog/               # Level 2 images
@@ -35,7 +35,7 @@ misalala/
 
 ### HTML & CSS
 - **Semantic HTML**: Use `<header>`, `<main>`, `<aside>`, `<nav>`, `<footer>` tags appropriately
-- **External CSS only**: All styles in `style/level.css`; no inline `style` attributes or `<style>` tags
+- **External CSS only**: All styles in `style/Game.css`; no inline `style` attributes or `<style>` tags
 - **CSS Grid & Flexbox**: Use modern layout techniques (never tables for layout)
 - **Responsive design**: Implement mobile-first approach with media queries
 - **Media breakpoints**:
@@ -108,7 +108,7 @@ const game = new Game({
 
 ## When Adding Features
 - Follow ES6+ patterns used in existing code
-- Add CSS to `style/level.css` (never inline styles)
+  - Add CSS to `style/Game.css` (never inline styles)
 - Use Game class methods; don't create global functions
 - Maintain responsive design across all breakpoints
 - Test on desktop, tablet, and mobile layouts
