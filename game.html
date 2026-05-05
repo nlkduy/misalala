@@ -8,7 +8,7 @@
 		<link rel="icon" href="favicon.png" type="image/gif">
 	</head>
 
-	<body>
+	<body class="game-page">
 		<header class="game-header">
 			<div class="header-brand">
 				<a href="index.html" class="misalala-logo-text"><img src="favicon.png" alt="MISALALA logo" class="favicon-logo">MISALALA</a>
@@ -25,22 +25,26 @@
 				<div class="game-area">
 					<div id="game-grid" class="game-grid"></div>
 				</div>
-				<div class="game-controls">
-					<div id="status" class="game-status"></div>
-					<button id="playagain" class="btn-play-again">Play Again</button>
+				<div class="game-controls-overlay" id="game-controls-overlay">
+					<div class="game-controls-modal">
+						<div id="status" class="game-status"></div>
+						<button id="playagain" class="btn-play-again">Play Again</button>
+					</div>
 				</div>
 			</section>
 		</main>
 
-		<div id="end-screen" style="display: none; text-align: center; padding: 50px;">
-			<h1>Game Complete!</h1>
-			<p>Your final score: <span id="final-score"></span></p>
-			<p>Redirecting to main page...</p>
+		<div id="end-screen" class="end-screen-overlay">
+			<div class="end-screen-modal">
+				<h1>Game Complete!</h1>
+				<p>Your final score: <span id="final-score"></span></p>
+				<p>Redirecting to main page...</p>
+			</div>
 		</div>
 
 		<div id="score-popup"></div>
 
-		<footer class="home-footer">
+		<footer class="game-footer">
 			<p>&copy; 2017-2026 by DiLabs | <b>Version 1.2</b></p>
 		</footer>
 
@@ -63,7 +67,7 @@
 				// Access denied; stop running game logic
 			} else if (level === 'end') {
 				document.getElementById('game-container').style.display = 'none';
-				document.getElementById('end-screen').style.display = 'block';
+			document.getElementById('end-screen').classList.add('active');
 				const score = sessionStorage.getItem('record') || 0;
 				document.getElementById('final-score').textContent = score;
 				setTimeout(() => window.location.href = 'index.html', 5000);

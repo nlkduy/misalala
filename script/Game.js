@@ -306,10 +306,14 @@ class Game {
    * Show play again button
    */
   showPlayAgainButton() {
-    const btn = document.getElementById('playagain');
-    if (btn) {
-      btn.style.display = 'block';
-      btn.addEventListener('click', () => this.reset());
+    const overlay = document.getElementById('game-controls-overlay');
+    if (overlay) {
+      overlay.classList.add('active');
+      const btn = document.getElementById('playagain');
+      if (btn) {
+        btn.style.display = 'block';
+        btn.addEventListener('click', () => this.reset());
+      }
     }
   }
 
@@ -338,6 +342,10 @@ class Game {
    * Reset game
    */
   reset() {
+    // Hide the game controls modal
+    const overlay = document.getElementById('game-controls-overlay');
+    if (overlay) overlay.classList.remove('active');
+
     // Hide the Play Again button and game status
     const btn = document.getElementById('playagain');
     if (btn) btn.style.display = 'none';

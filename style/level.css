@@ -17,8 +17,18 @@
 	box-sizing: border-box;
 }
 
-html, body {
-	min-height: 100%;
+html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
 	background-color: #eef3fb;
 	background-image: url(../background.jpg);
 	background-repeat: no-repeat;
@@ -32,17 +42,17 @@ body.home-page {
 	padding-top: 0;
 }
 
+body.game-page {
+	display: flex;
+	flex-direction: column;
+}
+
 button, input, select {
 	font: inherit;
 }
 
 .game-header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 50;
-	width: 100%;
+	flex-shrink: 0;
 	display: grid;
 	grid-template-columns: 1fr auto;
 	gap: 1rem;
@@ -51,6 +61,7 @@ button, input, select {
 	background: rgba(255, 255, 255, 0.96);
 	backdrop-filter: blur(14px);
 	border-bottom: 1px solid rgba(31, 45, 77, 0.08);
+	z-index: 50;
 }
 
 .header-brand {
@@ -113,36 +124,31 @@ button, input, select {
 	color: #183568;
 }
 
-:root {
-	--header-height: 7.5rem;
-	--footer-height: 5.5rem;
-}
-
-body {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-	padding-top: var(--header-height);
-	padding-bottom: var(--footer-height);
-}
-
 .game-main {
 	flex: 1;
+	min-height: 0;
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	align-items: flex-start;
-	padding-top: 1rem;
-	overflow-y: auto;
+	align-items: stretch;
+	padding: 0;
+	overflow: hidden;
 }
 
 .game-container {
-	width: min(100%, 980px);
+	position: relative;
+	width: 100%;
+	max-width: 980px;
 	margin: 0 auto;
-	padding: 0 1rem 1rem;
+	padding: 1rem;
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
+	flex: 1;
+	min-height: 0;
+	overflow-y: auto;
+	justify-content: center;
+	align-items: center;
 }
 
 .game-area {
@@ -154,7 +160,9 @@ body {
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	min-height: auto;
+	flex: 1;
+	min-height: 0;
+	overflow: auto;
 }
 
 .game-grid {
@@ -162,6 +170,7 @@ body {
 	max-width: 760px;
 	display: grid;
 	gap: 0.85rem;
+	auto-rows: 1fr;
 }
 
 .game-card {
@@ -238,24 +247,54 @@ body {
 	transform: translateY(-1px);
 }
 
+/* Game Controls Modal Styles
+   =========================== */
+
+.game-controls-overlay {
+	display: none;
+	position: absolute;
+	inset: 0;
+	padding: 1.5rem 1rem;
+	background: rgba(0, 0, 0, 0.55);
+	backdrop-filter: blur(3px);
+	z-index: 1000;
+	justify-content: center;
+	align-items: center;
+}
+
+.game-controls-overlay.active {
+	display: flex;
+}
+
+.game-controls-modal {
+	background: white;
+	border-radius: 16px;
+	padding: 2rem;
+	max-width: 400px;
+	width: 90%;
+	text-align: center;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+	animation: modal-appear 0.3s ease-out;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	align-items: center;
+}
+
 .game-footer {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: 40;
-	width: 100%;
+	flex-shrink: 0;
 	background: rgba(255, 255, 255, 0.98);
 	border-top: 1px solid rgba(31, 45, 77, 0.08);
 	padding: 0.9rem 1rem;
 	text-align: center;
 	font-size: 0.85rem;
 	color: #5a6b8e;
+	z-index: 40;
 }
 
 .score-popup {
 	position: fixed;
-	bottom: 5.5rem;
+	bottom: 2rem;
 	left: 50%;
 	transform: translateX(-50%);
 	background: rgba(24, 53, 104, 0.94);
@@ -476,10 +515,56 @@ body {
    End Screen Styles
    =========================== */
 
-#end-screen {
+.end-screen-overlay {
 	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7);
+	backdrop-filter: blur(4px);
+	z-index: 1000;
+	justify-content: center;
+	align-items: center;
+}
+
+.end-screen-overlay.active {
+	display: flex;
+}
+
+.end-screen-modal {
+	background: white;
+	border-radius: 16px;
+	padding: 2rem;
+	max-width: 400px;
+	width: 90%;
 	text-align: center;
-	padding: 50px;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+	animation: modal-appear 0.3s ease-out;
+}
+
+@keyframes modal-appear {
+	from {
+		opacity: 0;
+		transform: scale(0.9) translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+
+.end-screen-modal h1 {
+	font-size: 2.5rem;
+	margin-bottom: 1rem;
+	color: #183568;
+}
+
+.end-screen-modal p {
+	font-size: 1.2rem;
+	color: #5a6b8e;
+	margin: 0.5rem 0;
 }
 
 /* ===========================
