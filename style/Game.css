@@ -161,7 +161,7 @@ button, input, select {
 }
 
 .game-area {
-	background: #ffffff;
+	background: rgba(0, 0, 0, 0.2);
 	border-radius: 28px;
 	box-shadow: 0 28px 70px rgba(37, 57, 91, 0.08);
 	padding: clamp(0.6rem, 2.2vw, 1rem);
@@ -354,11 +354,13 @@ button, input, select {
 		grid-template-columns: 1fr auto;
 		gap: 0.5rem;
 		padding: 0.55rem 0.75rem;
+		justify-items: start;
 	}
 
 	.header-brand {
 		gap: 0.5rem;
 		min-width: 0;
+		justify-self: start;
 	}
 
 	.misalala-logo-text {
@@ -686,26 +688,28 @@ button, input, select {
 }
 
 #score {
-	color: #2e7d32;
+	color: #0000FF;
 }
 
-/* Center title + level badge within the 3-col header */
-.game-header {
-	grid-template-columns: 1fr auto 1fr;
-}
+@media (min-width: 721px) {
+	/* Center title + level badge within the 3-col header */
+	.game-header {
+		grid-template-columns: 1fr auto 1fr;
+	}
 
-.header-brand {
-	grid-column: 2;
-	justify-content: center;
-	width: 100%;
-}
+	.header-brand {
+		grid-column: 2;
+		justify-content: center;
+		width: 100%;
+	}
 
-.header-stats {
-	grid-column: 3;
-	justify-self: end;
-}
+	.header-stats {
+		grid-column: 3;
+		justify-self: end;
+	}
 
-.header-credit {
-	grid-column: 1;
-	justify-self: start;
+	.header-credit {
+		grid-column: 1;
+		justify-self: start;
+	}
 }
